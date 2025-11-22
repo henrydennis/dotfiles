@@ -1,3 +1,7 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -106,8 +110,5 @@ vscode "twxs.cmake"
 vscode "vue.volar"
 vscode "ziglang.vscode-zig"
 vscode "zxh404.vscode-proto3"
-go "golang.org/x/tools/gopls"
-go "google.golang.org/protobuf/cmd/protoc-gen-go"
-go "honnef.co/go/tools/cmd/staticcheck"
-go "github.com/wailsapp/wails/v2/cmd/wails"
-go "github.com/wailsapp/wails/v3/cmd/wails3"
+EOF
+{{ end -}}
