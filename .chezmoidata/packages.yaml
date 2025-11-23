@@ -48,6 +48,7 @@ packages:
       - "uv"
       - "zig"
       - "zoxide"
+      - "atuin"
     casks:
       - "aerospace"
       - "alacritty"
