@@ -1,0 +1,64 @@
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+antidote load
+
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+alias cc="claude --dangerously-skip-permissions"
+
+alias sesh="tmux attach || exec tmux new-session && exit;"
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/go/bin
+
+# Herd injected PHP binary.
+export PATH="/Users/henrydennis/Library/Application Support/Herd/bin/":$PATH
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/82/"
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/83/"
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/81/"
+# Herd injected PHP 7.4 configuration.
+export HERD_PHP_74_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/74/"
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/85/"
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/henrydennis/Library/Application Support/Herd/config/php/84/"
+
+
+# bun
+export PATH=~/.npm-global/bin:$PATH
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# platformio
+export PATH="/Users/henrydennis/.platformio/penv/bin":$PATH
+
+eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/Users/henrydennis/.opencode/bin:$PATH
+eval "$(~/.local/bin/mise activate)"
+
+export PATH=$HOME/.elixir-install/installs/otp/27.1.2/bin:$PATH
+export PATH=$HOME/.elixir-install/installs/elixir/1.17.3-otp-27/bin:$PATH
+
+alias ls='eza --icons --color=always --group-directories-first'
+alias ll='eza -l --icons --color=always --group-directories-first'
+
+autoload -U compinit
+compinit
